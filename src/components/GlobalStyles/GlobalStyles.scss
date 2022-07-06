@@ -11,13 +11,15 @@
 
 // font-family: 'Handlee', cursive;
 
-// font-family: 'Roboto', sans-serif;
-
 :root {
     --text-color: #8b8b8b;
     --title-color: #5b441e;
     --nav-color: #1d1d1d;
     --main-bg: #fff;
+
+    --nav-font: 'Josefin Sans', sans-serif;
+    --primary-font: 'Open Sans', sans-serif;
+    --link-font: 'EB Garamond', serif;
 }
 
 * {
@@ -28,9 +30,15 @@
 
 html {
     font-size: 62.5%;
+    overflow-x: hidden;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--primary-font);
     font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
 }

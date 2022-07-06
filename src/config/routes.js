@@ -1,7 +1,7 @@
 const routes = {
     home: '/',
-    introduction: '/introduction',
-    category: '/category',
+    introduction: '/gioi-thieu',
+    catalog: '/danh-muc-san-pham',
     cart: '/cart',
 };
 

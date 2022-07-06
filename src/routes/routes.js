@@ -3,7 +3,7 @@ import config from '../config';
 import Home from '../pages/Home';
 import Cart from '../pages/Cart';
 import Introduction from '../pages/Introduction';
-import Category from '../pages/Category';
+import Catalog from '../pages/Catalog';
 
 const publicRoutes = [
     {
@@ -15,8 +15,12 @@ const publicRoutes = [
         component: Introduction,
     },
     {
-        path: config.routes.category,
-        component: Category,
+        path: config.routes.catalog,
+        component: Catalog,
+    },
+    {
+        path: `${config.routes.catalog}/:slug`,
+        component: Introduction,
     },
     {
         path: config.routes.cart,
