@@ -2,15 +2,20 @@ import classNames from 'classnames/bind';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import config from '../../../config';
 import styles from './Header.module.scss';
 import logo from '../../../assets/images/logo.jpg';
 import { BoxIcon, MenuIcon, UserIcon, MenuBarsIcon } from '../../../components/Icons';
+import ViewModal from '../ViewModal/ViewModal';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import MenuTablet from '../MenuTablet/MenuTablet';
+import modalImage from '../../../assets/images/nobu-silla-blanca-150x150.jpg';
 
 const cx = classNames.bind(styles);
 
-const mainNav = [
+const MENU = [
     {
         title: 'Giới thiệu',
         path: config.routes.introduction,
@@ -179,131 +184,108 @@ const mainNav = [
 
 function Header() {
     const [activeMenu, setActiveMenu] = useState(false);
-    const [activeSubMenu, setActiveSubMenu] = useState(-1);
-    const [activeLinkSubMenu, setActiveLinkSubMenu] = useState(-1);
+    const [activeViewModalCart, setActiveViewModalCart] = useState(false);
+    const [activeViewModal, setActiveViewModal] = useState(false);
 
     return (
-        <header className={cx('wrapper')}>
-            <div className={cx('inner')}>
-                <Link to={config.routes.home} className={cx('logo')}>
-                    <img src={logo} alt="" />
-                </Link>
+        <>
+            <header className={cx('wrapper')}>
+                <div className={cx('inner')}>
+                    <Link to={config.routes.home} className={cx('logo')}>
+                        <img src={logo} alt="" />
+                    </Link>
 
-                <nav className={cx('main-nav')}>
-                    {mainNav.map((nav, index) => (
-                        <div key={index} className={cx('wrapper-sub-nav')}>
-                            <Tippy
-                                interactive
-                                offset={[0, 0]}
-                                delay={[200, 200]}
-                                render={(attrs) => {
-                                    if (!!nav.subNav)
-                                        return (
-                                            <div
-                                                className={cx('sub-nav', {
-                                                    'sub-nav-single': !nav.subNav[0].links,
-                                                })}
-                                                tabIndex="-1"
-                                                {...attrs}
-                                            >
-                                                {nav.subNav.map((subItem, index1) => (
-                                                    <div className={cx('sub-nav-item')} key={index1}>
-                                                        <Link
-                                                            to={subItem.path}
-                                                            className={cx('sub-nav-title', 'title')}
-                                                        >
-                                                            <span>{subItem.title}</span>
-                                                        </Link>
-                                                        {!!subItem.links &&
-                                                            subItem.links.map((link, index2) => (
-                                                                <div key={index2} className={cx('link')}>
-                                                                    <Link to={link.path}>
-                                                                        <span>{link.title}</span>
-                                                                    </Link>
-                                                                </div>
-                                                            ))}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        );
-                                }}
-                            >
-                                <div className={cx('nav-item')}>
-                                    <Link to={nav.path} key={index} className={cx('nav-link', 'title')}>
-                                        <span>{nav.title}</span>
-                                    </Link>
-                                </div>
-                            </Tippy>
-                        </div>
-                    ))}
-                </nav>
-
-                <div className={cx('actions')}>
-                    <button className={cx('action-btn', 'btn-pc')}>
-                        <UserIcon />
-                    </button>
-                    <button className={cx('action-btn')}>
-                        <BoxIcon />
-                        <span className={cx('quantity')}>12</span>
-                    </button>
-                    <button className={cx('action-btn', 'btn-pc')}>
-                        <MenuIcon />
-                    </button>
-                    <button className={cx('action-btn', 'btn-mobile')} onClick={() => setActiveMenu(!activeMenu)}>
-                        <MenuBarsIcon />
-                    </button>
-                </div>
-            </div>
-            <div className={cx('menu-mobile', { active: activeMenu })}>
-                {mainNav.map((item, index) => (
-                    <div key={index}>
-                        <Link
-                            to={item.path}
-                            className={cx('mobile-title', 'title')}
-                            onClick={(e) => {
-                                if (item.subNav) e.preventDefault();
-                                setActiveSubMenu(index);
-                            }}
-                        >
-                            {item.title}
-                        </Link>
-                        {!!item.subNav && (
-                            <div className={cx('menu-mobile-item', { active: activeSubMenu === index })}>
-                                {item.subNav.map((subItem, index1) => (
-                                    <div key={index1}>
-                                        <Link
-                                            to={subItem.path}
-                                            className={cx('link')}
-                                            onClick={(e) => {
-                                                if (subItem.links) e.preventDefault();
-                                                setActiveLinkSubMenu(index1);
-                                            }}
-                                        >
-                                            {subItem.title}
+                    <nav className={cx('main-nav')}>
+                        {MENU.map((nav, index) => (
+                            <div key={index} className={cx('wrapper-sub-nav')}>
+                                <Tippy
+                                    interactive
+                                    offset={[0, 0]}
+                                    delay={[250, 200]}
+                                    render={(attrs) => {
+                                        if (!!nav.subNav)
+                                            return (
+                                                <div
+                                                    className={cx('sub-nav', {
+                                                        'sub-nav-single': !nav.subNav[0].links,
+                                                    })}
+                                                    tabIndex="-1"
+                                                    {...attrs}
+                                                >
+                                                    {nav.subNav.map((subItem, index1) => (
+                                                        <div className={cx('sub-nav-item')} key={index1}>
+                                                            <Link
+                                                                to={subItem.path}
+                                                                className={cx('sub-nav-title', 'title')}
+                                                            >
+                                                                <span>{subItem.title}</span>
+                                                            </Link>
+                                                            {!!subItem.links &&
+                                                                subItem.links.map((link, index2) => (
+                                                                    <div key={index2} className={cx('link')}>
+                                                                        <Link to={link.path}>
+                                                                            <span>{link.title}</span>
+                                                                        </Link>
+                                                                    </div>
+                                                                ))}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            );
+                                    }}
+                                >
+                                    <div className={cx('nav-item')}>
+                                        <Link to={nav.path} key={index} className={cx('nav-link', 'title')}>
+                                            <span>{nav.title}</span>
                                         </Link>
-                                        {!!subItem.links && (
-                                            <div
-                                                className={cx('link-menu-mobile', {
-                                                    active: activeLinkSubMenu === index1,
-                                                })}
-                                            >
-                                                {subItem.links.map((link, index2) => (
-                                                    <div key={index2}>
-                                                        <Link to={link.path} className={cx('link')}>
-                                                            {link.title}
-                                                        </Link>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
                                     </div>
-                                ))}
+                                </Tippy>
                             </div>
-                        )}
+                        ))}
+                    </nav>
+
+                    <div className={cx('actions')}>
+                        <button className={cx('action-btn', 'btn-pc')}>
+                            <UserIcon />
+                        </button>
+                        <button className={cx('action-btn')} onClick={() => setActiveViewModalCart(true)}>
+                            <BoxIcon />
+                            <span className={cx('quantity')}>12</span>
+                        </button>
+                        <button className={cx('action-btn', 'btn-pc')} onClick={() => setActiveViewModal(true)}>
+                            <MenuIcon />
+                        </button>
+                        <button className={cx('action-btn', 'btn-mobile')} onClick={() => setActiveMenu(!activeMenu)}>
+                            <MenuBarsIcon />
+                        </button>
                     </div>
-                ))}
-            </div>
-        </header>
+                </div>
+
+                <MenuTablet dataMenu={MENU} activeMenu={activeMenu} />
+            </header>
+            <ViewModal className={cx('modal-cart')} active={activeViewModal} CloseViewModal={setActiveViewModal}>
+                <div className={cx('wrapper-cart')}>
+                    <div className={cx('modal-links')}>
+                        <a href="https://www.facebook.com/" className={cx('modal-link')}>
+                            <FontAwesomeIcon icon={faFacebook} />
+                        </a>
+                        <a href="https://www.instagram.com/" className={cx('modal-link')}>
+                            <FontAwesomeIcon icon={faInstagram} />
+                        </a>
+                    </div>
+                    <div className={cx('modal-image')}>
+                        <img src={modalImage} alt="modalImage" />
+                    </div>
+                </div>
+            </ViewModal>
+            <ViewModal active={activeViewModalCart} CloseViewModal={setActiveViewModalCart}>
+                <div className={cx('list-product')}>
+                    <div className={cx('product')}></div>
+                    <div className={cx('product')}></div>
+                </div>
+                <div className={cx('actions')}></div>
+            </ViewModal>
+        </>
     );
 }
 

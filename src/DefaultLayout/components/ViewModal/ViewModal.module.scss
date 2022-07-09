@@ -1,0 +1,44 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+
+    &:hover {
+        cursor: url('../../../assets/images/times-svgrepo-com.svg'), auto;
+    }
+
+    &.active {
+        display: block;
+    }
+}
+
+.content {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    min-width: 280px;
+    width: 435px;
+    padding: 60px 25px;
+    z-index: 99;
+    cursor: context-menu;
+    animation: modalFadeIn ease 0.8s;
+
+    @media (max-width: 600px) {
+        width: max-content;
+    }
+}
+
+@keyframes modalFadeIn {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+}

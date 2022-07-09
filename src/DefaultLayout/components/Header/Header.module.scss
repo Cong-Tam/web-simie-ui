@@ -8,10 +8,6 @@
         padding: 0 30px;
         height: 70px;
     }
-
-    @media (max-width: 600px) {
-        padding: 0 30px;
-    }
 }
 
 .inner {
@@ -113,7 +109,7 @@
 
 .sub-nav {
     display: flex;
-    background-color: #fff;
+    background-color: var(--main-bg);
     width: 100vw;
     justify-content: center;
     margin-left: -5px;
@@ -162,7 +158,9 @@
     font-size: 1.7rem;
     letter-spacing: normal;
     font-weight: 300;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     margin: 8px 0;
 }
@@ -215,32 +213,55 @@
     font-size: 0.9rem;
 }
 
-//Menu mobile
-.menu-mobile {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    // background-color: #ccc;
-    padding: 34px 70px;
-    width: 100vw;
-    display: none;
+//Modal
+
+.wrapper-cart {
+    padding: 10px 50px 35px;
 }
 
-.mobile-title {
-    display: inline-block;
-    line-height: 30px;
+.modal-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.modal-link {
+    border: 1px solid;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+
+    ~ .modal-link {
+        margin-left: 12px;
+    }
+
+    &:hover {
+        color: #8b8b8b;
+    }
+}
+.modal-cart {
+    background-color: #f4f2f2 !important;
+}
+
+.modal-image {
+    width: 90px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.product {
     width: 100%;
-}
+    height: 84px;
+    background-color: #ccc;
 
-.menu-mobile-item {
-    display: none;
-}
-
-.link-menu-mobile {
-    margin-left: 23px;
-    display: none;
-}
-
-.active {
-    display: block;
+    ~ .product {
+        margin-top: 30px;
+    }
 }
