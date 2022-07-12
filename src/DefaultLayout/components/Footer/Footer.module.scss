@@ -1,0 +1,44 @@
+.footer {
+    padding: 124px 0;
+    background-color: #f4f2f2;
+}
+
+.wrapper {
+    max-width: 1130px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.item {
+    width: max-content;
+
+    @media (max-width: 600px) {
+        &:first-child {
+            margin-bottom: 44px;
+        }
+    }
+
+    li {
+        list-style: none;
+        margin-bottom: 4px;
+        line-height: 27px;
+        color: var(--text-color);
+    }
+}
+
+.icon {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.title {
+    margin-bottom: 14px;
+    font-size: 1.6rem;
+    font-family: Tahoma;
+    letter-spacing: 0.2rem;
+    color: var(--nav-color);
+}
+
+//Circle

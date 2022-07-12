@@ -224,25 +224,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
-}
-
-.modal-link {
-    border: 1px solid;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
-
-    ~ .modal-link {
-        margin-left: 12px;
-    }
-
-    &:hover {
-        color: #8b8b8b;
-    }
+    gap: 1.8rem;
 }
 .modal-cart {
     background-color: #f4f2f2 !important;

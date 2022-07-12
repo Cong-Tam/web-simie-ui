@@ -1,0 +1,27 @@
+$numbers: (1, 2, 3, 4, 5, 6, 7, 8);
+
+@each $var in $numbers {
+    .grid-col-#{$var} {
+        grid-template-columns: repeat($var, 1fr);
+    }
+}
+
+@each $var in $numbers {
+    .grid-col-md-#{$var} {
+        @media (max-width: 1023px) {
+            grid-template-columns: repeat($var, 1fr);
+        }
+    }
+}
+
+@each $var in $numbers {
+    .grid-col-sm-#{$var} {
+        @media (max-width: 600px) {
+            grid-template-columns: repeat($var, 1fr);
+        }
+    }
+}
+
+.wrapper {
+    display: grid;
+}

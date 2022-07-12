@@ -12,6 +12,7 @@ import ViewModal from '../ViewModal/ViewModal';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import MenuTablet from '../MenuTablet/MenuTablet';
 import modalImage from '../../../assets/images/nobu-silla-blanca-150x150.jpg';
+import CircleIconLink from '../../../components/CircleIconLink';
 
 const cx = classNames.bind(styles);
 
@@ -266,12 +267,12 @@ function Header() {
             <ViewModal className={cx('modal-cart')} active={activeViewModal} CloseViewModal={setActiveViewModal}>
                 <div className={cx('wrapper-cart')}>
                     <div className={cx('modal-links')}>
-                        <a href="https://www.facebook.com/" className={cx('modal-link')}>
+                        <CircleIconLink href="https://www.facebook.com/Simiehome">
                             <FontAwesomeIcon icon={faFacebook} />
-                        </a>
-                        <a href="https://www.instagram.com/" className={cx('modal-link')}>
+                        </CircleIconLink>
+                        <CircleIconLink href="https://www.instagram.com/simie_home">
                             <FontAwesomeIcon icon={faInstagram} />
-                        </a>
+                        </CircleIconLink>
                     </div>
                     <div className={cx('modal-image')}>
                         <img src={modalImage} alt="modalImage" />

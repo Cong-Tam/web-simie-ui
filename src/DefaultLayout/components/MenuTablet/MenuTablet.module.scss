@@ -6,6 +6,7 @@
     width: 100%;
     background-color: var(--main-bg);
     border-bottom: 1px solid #ddd;
+    z-index: 999;
 
     @media (min-width: 1024px) {
         display: none;

@@ -1,5 +1,32 @@
+.wrapper {
+    position: relative;
+}
+
 .container {
     width: 100%;
     max-width: 1620px;
     margin: 0 auto;
+}
+
+.scroll-top {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+}
+
+.active {
+    display: flex;
+}
+
+.icon {
+    font-size: 2.4rem;
+    color: #ccc;
 }

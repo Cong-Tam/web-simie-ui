@@ -6,6 +6,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
     display: none;
+    z-index: 999;
 
     &:hover {
         cursor: url('../../../assets/images/times-svgrepo-com.svg'), auto;

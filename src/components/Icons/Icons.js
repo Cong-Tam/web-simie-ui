@@ -55,3 +55,9 @@ export const MenuBarsIcon = ({ width = '2.8rem', height = '1.3rem', className })
         <line fill="none" stroke="#1D1D1D" strokeMiterlimit="10" x1="9.274" y1="6.589" x2="0.122" y2="6.589"></line>
     </svg>
 );
+
+export const CircleIcon = ({ width = '2.8rem', height = '1.3rem', className }) => (
+    <svg className={className} width={width} height={height}>
+        <circle cx="50%" cy="50%" r="49%"></circle>
+    </svg>
+);

@@ -1,0 +1,69 @@
+.circle {
+    position: relative;
+    width: 34px;
+    height: 34px;
+}
+
+.icon {
+    color: #959594;
+    position: absolute;
+    font-size: 1.8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-svg {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    fill: none;
+    color: currentColor;
+    stroke: #959594;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    -webkit-transition: all 0.8s cubic-bezier(0.14, 0.57, 0.14, 1.03);
+    -o-transition: all 0.8s cubic-bezier(0.14, 0.57, 0.14, 1.03);
+    transition: all 0.8s cubic-bezier(0.14, 0.57, 0.14, 1.03);
+    overflow: visible;
+
+    > circle {
+        stroke-dasharray: 160;
+        stroke-dashoffset: 160;
+        stroke-width: 1;
+        -webkit-transition: all 0.8s cubic-bezier(0.45, 0, 0.14, 1.03);
+        -o-transition: all 0.8s cubic-bezier(0.45, 0, 0.14, 1.03);
+        transition: all 0.8s cubic-bezier(0.45, 0, 0.14, 1.03);
+        -webkit-transform: rotate(-145deg);
+        -ms-transform: rotate(-145deg);
+        transform: rotate(-145deg);
+        -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+        transform-origin: center;
+    }
+}
+
+.circle {
+    &:hover {
+        .circle-svg {
+            > circle {
+                stroke-dashoffset: 10;
+                -webkit-transform: rotate(55deg);
+                -ms-transform: rotate(55deg);
+                transform: rotate(55deg);
+                -webkit-transition: all 1s cubic-bezier(0.43, 0.41, 0.36, 0.9);
+                -o-transition: all 1s cubic-bezier(0.43, 0.41, 0.36, 0.9);
+                transition: all 1s cubic-bezier(0.43, 0.41, 0.36, 0.9);
+            }
+        }
+
+        .icon {
+            color: #1d1d1d;
+            transition: all 1s cubic-bezier(0.43, 0.41, 0.36, 0.9);
+        }
+    }
+}
